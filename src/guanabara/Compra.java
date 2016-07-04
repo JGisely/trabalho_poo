@@ -12,11 +12,22 @@ import java.util.ArrayList;
  * @author isouza
  */
 public class Compra {
-    ArrayList<ArrayList<Item>> compras = new ArrayList<ArrayList<Item>>();
+//    ArrayList<ArrayList<Item>> compras = new ArrayList<ArrayList<Item>>();
+    ArrayList<Item> itens = new ArrayList<Item>();
+    Double total = 0.0;
+    public void addItem(Item item){
+        itens.add(item);
+        total += item.getTotal();
+    }
     
+    public void listarItens(){
+        for (Item item : itens){
+            System.out.println(item.getNome() + ": "+ item.getQuantidade() + "*" + item.getPreco() + " = " + item.getTotal());
+        }
+        System.out.println("Total: " + total);
+    }
     
-    public void setCompra(ArrayList<Item> listaCompras){
-        compras.add(listaCompras);
-        listaCompras = null;
+    public Double getTotal(){
+        return total;
     }
 }

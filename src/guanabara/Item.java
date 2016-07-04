@@ -5,8 +5,6 @@
  */
 package guanabara;
 
-import static guanabara.Guanabara.listaCompra;
-
 /**
  *
  * @author isouza
@@ -36,9 +34,5 @@ public class Item extends Produto {
         this.setPreco(p.getPreco());
         this.setQuantidade(quantidade);
         setTotal();
-    }
-    
-    public void addItem(){ 
-        listaCompra.add(this);
     }
 }

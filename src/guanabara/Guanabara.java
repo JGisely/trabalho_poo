@@ -19,8 +19,8 @@ public class Guanabara {
     static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
     static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
     static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
-    static ArrayList<Item> listaCompra = new ArrayList<Item>();
-    
+//    static ArrayList<Item> listaCompra = new ArrayList<Item>();
+    static Compra compra = new Compra();
     static Funcionario funcionarioLogado;
     static Gerente gerenteLogado;
     
@@ -112,6 +112,7 @@ public class Guanabara {
                 }
                 case 12: {
                     finalizarCompra();
+                    break;
                 }
                 case 21: {
                     System.out.println(funcionarioLogado.getNome());
@@ -177,18 +178,39 @@ public class Guanabara {
         Item item = new Item();
         System.out.println("Qual a quantidade desejada?");
         item.setItem(p,teclado.nextInt());
-        item.addItem();
+        compra.addItem(item);
     }
     
     private static void listarItens() {
-        System.out.println("Listar Itens()");
-        for (Item item : listaCompra){
-            System.out.println(item.getNome() + ": "+ item.getQuantidade() + "*" + item.getPreco() + " = " + item.getTotal());
-        }
+        compra.listarItens();
     }
     
     
     private static void finalizarCompra(){
-        
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("==================================");
+        System.out.println("|       Formas de Pagamento      |");
+        System.out.println("==================================");
+        System.out.println("| Opções:                        |");
+        System.out.println("|        1. Debito               |");
+        System.out.println("|        2. Dinheiro             |");
+        System.out.println("==================================");
+        System.out.println("| OBS:  Não aceitamos cheques    |");
+        System.out.println("==================================");
+        int opcao = teclado.nextInt();
+        switch (opcao) {
+            case 1: {
+                PagamentoCartao pc = new PagamentoCartao(compra.getTotal());
+                break;
+            }
+            case 2: {
+                PagamentoDinheiro pd = new PagamentoDinheiro(compra.getTotal());
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+            
     }
 }
