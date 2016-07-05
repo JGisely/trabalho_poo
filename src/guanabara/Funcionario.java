@@ -15,12 +15,7 @@ import java.util.Scanner;
  */
 public class Funcionario extends Pessoa {
     
-    public void create(){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o nome:");
-        setNome(teclado.nextLine());
-        System.out.println("Digite a senha:");
-        setSenha(teclado.nextLine());
+    public void adicionar(){
         listaFuncionario.add(this);
     }
     

@@ -5,6 +5,8 @@
  */
 package guanabara;
 
+import java.util.Scanner;
+
 /**
  *
  * @author isouza
@@ -29,5 +31,15 @@ public abstract class Pessoa {
         return nome;
     }
     
-    public abstract void create();
+    public void create(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o nome:");
+        setNome(teclado.nextLine());
+        System.out.println("Digite a senha:");
+        setSenha(teclado.nextLine());
+        adicionar();
+    };
+    
+    public abstract void adicionar();
+    
 }
