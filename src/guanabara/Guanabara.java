@@ -51,6 +51,7 @@ public class Guanabara {
             System.out.println("|       12. Finalizar Compra     |"); // só funcionario
             System.out.println("|       13. Relatório de Vendas  |"); // só gerente
             System.out.println("|       14. Relatório de Estoque |"); // só gerente
+            System.out.println("|       15. Buscar Produto       |"); // só gerente
             System.out.println("|        20. Sair                |"); 
             System.out.println("|        21. Funcionario Logado  |");
             System.out.println("|        22. Gerente Logado      |");
@@ -137,12 +138,23 @@ public class Guanabara {
                     }
                     break;
                 }
+                case 14: {
+                    System.out.println("#TODO");
+                    break;
+                }
+                case 15: {
+                    buscaProduto();
+                }
                 case 21: {
-                    System.out.println(funcionarioLogado.getNome());
+                    if (loggedFuncionario()) {
+                        System.out.println(funcionarioLogado.getNome());
+                    }
                     break;
                 }
                 case 22: {
-                    System.out.println(gerenteLogado.getNome());
+                    if (loggedGerente()){
+                        System.out.println(gerenteLogado.getNome());
+                    }
                     break;
                 }
                 default: {
@@ -272,5 +284,12 @@ public class Guanabara {
     
     private static void permissaoInvalida(){
         System.out.println("Voce não possui permissão!");
+    }
+    
+    private static void buscaProduto(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Qual produto vc quer saber detalhes?");
+        Produto p = Produto.getProduto(teclado.nextLine());
+        p.imprimeProduto();
     }
 }

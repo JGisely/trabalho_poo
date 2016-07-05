@@ -63,6 +63,10 @@ public class Produto {
         }
     }
     
+    public void imprimeProduto(){
+        System.out.println(nome + ": " + preco);
+    }
+    
     public static Produto getProduto(String nome){
         for (Produto produto : listaProduto) {
             if (produto.getNome().equals(nome)){
