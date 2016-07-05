@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public class Gerente extends Pessoa{    
+public class Gerente extends Pessoa {    
     
     public void adicionar(){
         listaGerente.add(this);

@@ -14,6 +14,15 @@ import java.util.Scanner;
 public abstract class Pessoa {
     protected String nome;
     protected String senha;
+    protected String matricula;
+    
+    public void setMatricula(String novaMatricula){
+        matricula = novaMatricula;
+    }
+    
+    public String getMatricula(){
+        return matricula;
+    }
     
     public void setNome(String novoNome){
         nome = novoNome;
@@ -37,6 +46,8 @@ public abstract class Pessoa {
         setNome(teclado.nextLine());
         System.out.println("Digite a senha:");
         setSenha(teclado.nextLine());
+        System.out.println("Digite a matricula:");
+        setMatricula(teclado.nextLine());
         adicionar();
     };
     
