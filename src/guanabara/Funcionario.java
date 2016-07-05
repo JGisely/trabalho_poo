@@ -13,27 +13,9 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public class Funcionario {
-    private String nome;
-    private String senha;
+public class Funcionario extends Pessoa {
     
-    public void setNome(String novoNome){
-        nome = novoNome;
-    }
-    
-    public void setSenha(String novaSenha){
-        senha = novaSenha;
-    }
-    
-    public String getSenha(){
-        return senha;
-    }
-    
-    public String getNome(){
-        return nome;
-    }
-    
-    public void create(ArrayList<Funcionario> listaFuncionario){
+    public void create(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o nome:");
         setNome(teclado.nextLine());
@@ -42,7 +24,7 @@ public class Funcionario {
         listaFuncionario.add(this);
     }
     
-    public static Funcionario login(ArrayList<Funcionario> listaFuncionario){
+    public static Funcionario login(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o funcionario buscado:");
         String username = teclado.nextLine();

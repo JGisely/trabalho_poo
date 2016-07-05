@@ -78,7 +78,7 @@ public class Guanabara {
                     break;
                 }
                 case 4: {
-                    funcionarioLogado = Funcionario.login(listaFuncionario);
+                    funcionarioLogado = Funcionario.login();
                     break;
                 }
                 case 5: {
@@ -166,7 +166,7 @@ public class Guanabara {
     
     private static void cadastrarFuncionario(){
         Funcionario f = new Funcionario();
-        f.create(listaFuncionario);
+        f.create();
         System.out.println("Cadastrado com sucesso!");
     }
     
@@ -178,7 +178,7 @@ public class Guanabara {
     
     private static void cadastrarGerente(){
         Gerente g = new Gerente();
-        g.create(listaGerente);
+        g.create();
     }
     
     private static void listarGerentes(){

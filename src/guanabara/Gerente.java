@@ -5,6 +5,7 @@
  */
 package guanabara;
 
+import static guanabara.Guanabara.listaGerente;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,27 +13,10 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public class Gerente {
-    private String nome;
-    private String senha;
+public class Gerente extends Pessoa{
     
-    public void setNome(String novoNome){
-        nome = novoNome;
-    }
     
-    public String getNome(){
-        return nome;
-    }
-    
-    public void setSenha(String novaSenha){
-        senha = novaSenha;
-    }
-    
-    public String getSenha(){
-        return senha;
-    }
-    
-    public void create(ArrayList<Gerente> listaGerente){
+    public void create(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o nome:");
         setNome(teclado.nextLine());
