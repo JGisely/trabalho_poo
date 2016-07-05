@@ -20,8 +20,8 @@ public class Guanabara {
     static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
     static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
     static Compra compra = new Compra();
-    static Funcionario funcionarioLogado;
-    static Gerente gerenteLogado;
+    static Funcionario funcionarioLogado = new Funcionario();
+    static Gerente gerenteLogado = new Gerente();
     
     public static void main(String[] args) {
         printMenu();
@@ -78,11 +78,11 @@ public class Guanabara {
                     break;
                 }
                 case 4: {
-                    funcionarioLogado = Funcionario.login();
+                    funcionarioLogado.login();
                     break;
                 }
                 case 5: {
-                    gerenteLogado = Gerente.login(listaGerente);
+                    gerenteLogado.login();
                     break;
                 }
                 case 6: {

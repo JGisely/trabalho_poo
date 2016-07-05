@@ -40,6 +40,16 @@ public abstract class Pessoa {
         adicionar();
     };
     
+    public void login(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o usuario:");
+        String username = teclado.nextLine();
+        System.out.println("Digite a senha:");
+        String senha = teclado.nextLine();
+        setLogged(username,senha);
+    }
+    
+    public abstract void setLogged(String username, String senha);
     public abstract void adicionar();
     
 }

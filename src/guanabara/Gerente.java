@@ -6,6 +6,7 @@
 package guanabara;
 
 import static guanabara.Guanabara.listaGerente;
+import static guanabara.Guanabara.gerenteLogado;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,17 +20,11 @@ public class Gerente extends Pessoa{
         listaGerente.add(this);
     }
     
-    public static Gerente login(ArrayList<Gerente> listaGerente){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o gerente buscado:");
-        String username = teclado.nextLine();
-        System.out.println("Digite a senha do gerente:");
-        String senha = teclado.nextLine();
+    public void setLogged(String username, String senha){
         for (Gerente gerente : listaGerente){
             if ((gerente.getNome().equals(username)) && (gerente.getSenha().equals(senha)) ){
-                return gerente;
+                gerenteLogado = gerente;
             }
         }
-        return null;
     }
 }

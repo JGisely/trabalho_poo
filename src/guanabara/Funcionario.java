@@ -6,6 +6,7 @@
 package guanabara;
 
 import static guanabara.Guanabara.listaFuncionario;
+import static guanabara.Guanabara.funcionarioLogado;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,17 +20,11 @@ public class Funcionario extends Pessoa {
         listaFuncionario.add(this);
     }
     
-    public static Funcionario login(){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o funcionario buscado:");
-        String username = teclado.nextLine();
-        System.out.println("Digite a senha do funcionario:");
-        String senha = teclado.nextLine();
+    public void setLogged(String username, String senha){
         for (Funcionario func : listaFuncionario){
             if ((func.getNome().equals(username)) && (func.getSenha().equals(senha)) ){
-                return func;
+                funcionarioLogado = func;
             }
         }
-        return null;
     }
 }
