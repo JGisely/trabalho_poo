@@ -19,7 +19,6 @@ public class Guanabara {
     static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
     static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
     static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
-//    static ArrayList<Item> listaCompra = new ArrayList<Item>();
     static Compra compra = new Compra();
     static Funcionario funcionarioLogado;
     static Gerente gerenteLogado;
@@ -43,16 +42,16 @@ public class Guanabara {
             System.out.println("|        3. Listar Gerentes      |");
             System.out.println("|        4. Login Funcionario    |");
             System.out.println("|        5. Login Gerente        |");
-            System.out.println("|        6. Cadastrar Produto    |");
-            System.out.println("|        7. Listar Produtos      |");
-            System.out.println("|        8. Remover Produtos     |");
-            System.out.println("|        9. Editar Produto       |");
-            System.out.println("|       10. Adicionar Itens      |");
-            System.out.println("|       11. Listar Itens         |");
-            System.out.println("|       12. Finalizar Compra     |");
-            //System.out.println("|        6. Relatório de Vendas  |");
-            //System.out.println("|        7. Relatório de Estoque |");
-            System.out.println("|        20. Sair                |");
+            System.out.println("|        6. Cadastrar Produto    |"); // só gerente
+            System.out.println("|        7. Listar Produtos      |"); // qualquer um
+            System.out.println("|        8. Remover Produtos     |"); // só gerente
+            System.out.println("|        9. Editar Produto       |"); // só gerente
+            System.out.println("|       10. Adicionar Itens      |"); // só funcionario
+            System.out.println("|       11. Listar Itens         |"); // só funcionario
+            System.out.println("|       12. Finalizar Compra     |"); // só funcionario
+            System.out.println("|       13. Relatório de Vendas  |"); // só gerente
+            System.out.println("|       14. Relatório de Estoque |"); // só gerente
+            System.out.println("|        20. Sair                |"); 
             System.out.println("|        21. Funcionario Logado  |");
             System.out.println("|        22. Gerente Logado      |");
             System.out.println("==================================");
@@ -86,7 +85,12 @@ public class Guanabara {
                     break;
                 }
                 case 6: {
-                    cadastrarProduto();
+                    if (loggedGerente()) {
+                     cadastrarProduto();   
+                    }
+                    else {
+                        permissaoInvalida();
+                    }
                     break;
                 }
                 case 7: {
@@ -94,12 +98,22 @@ public class Guanabara {
                     break;
                 }
                 case 8: {
-                    System.out.println("Qual o nome do produto?");
-                    removeProduto(teclado.nextLine());
+                    if (loggedGerente()) {
+                        System.out.println("Qual o nome do produto?");
+                        removeProduto(teclado.nextLine());
+                    }
+                    else {
+                        permissaoInvalida();
+                    }
                     break;
                 }
                 case 9: {
-                    editarProduto();
+                    if (loggedGerente()) {
+                        editarProduto();
+                    }
+                    else {
+                        permissaoInvalida();
+                    }
                     break;
                 }
                 case 10: {
@@ -112,6 +126,15 @@ public class Guanabara {
                 }
                 case 12: {
                     finalizarCompra();
+                    break;
+                }
+                case 13: {
+                    if (loggedGerente()) {
+                        relatorioVendas();
+                    }
+                    else {
+                        permissaoInvalida();
+                    }
                     break;
                 }
                 case 21: {
@@ -182,7 +205,13 @@ public class Guanabara {
     }
     
     private static void listarItens() {
-        compra.listarItens();
+        try {
+            compra.listarItens();
+        }
+        catch (NullPointerException ex) {
+            System.out.println(ex);
+        }
+        
     }
     
     
@@ -212,5 +241,36 @@ public class Guanabara {
             }
         }
             
+    }
+    
+    private static Boolean loggedFuncionario(){
+        try {
+            if (funcionarioLogado != null){
+                return true;
+            }
+        } catch (NullPointerException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
+    private static Boolean loggedGerente(){
+        try {
+            if (gerenteLogado != null) {
+                return true;
+            }
+        } catch (NullPointerException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
+    private static void relatorioVendas(){
+        Historico h = new Historico();
+        h.getRelatorioVendas();
+    }
+    
+    private static void permissaoInvalida(){
+        System.out.println("Voce não possui permissão!");
     }
 }

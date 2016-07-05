@@ -5,6 +5,8 @@
  */
 package guanabara;
 
+import static guanabara.Guanabara.compra;
+
 /**
  *
  * @author isouza
@@ -16,6 +18,13 @@ public abstract class Pagamento {
     public Pagamento(Double total) {
         this.total = total;
         pagar();
+        finalizar();
     }
     public abstract void pagar();
+    
+    public void finalizar(){
+        Historico h = new Historico();
+        h.setHistorico(compra);
+        compra = null;
+    }
 }
