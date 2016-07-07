@@ -11,7 +11,7 @@ import static guanabara.Guanabara.compra;
  *
  * @author isouza
  */
-public abstract class Pagamento {
+public abstract class Pagamento implements Runnable {
     
     protected Double total;
 
