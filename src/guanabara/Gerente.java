@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public class Gerente extends Pessoa {    
+public class Gerente extends Pessoa implements PessoaContratada{    
     
     public void adicionar(){
         listaGerente.add(this);
@@ -26,5 +26,10 @@ public class Gerente extends Pessoa {
                 gerenteLogado = gerente;
             }
         }
+    }
+    
+    public void pedirDemissao(){
+      listaGerente.remove(this);
+      gerenteLogado = null;
     }
 }

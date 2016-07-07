@@ -52,6 +52,7 @@ public class Guanabara {
             System.out.println("|       13. Relatório de Vendas  |"); // só gerente
             System.out.println("|       14. Relatório de Estoque |"); // só gerente
             System.out.println("|       15. Buscar Produto       |"); // só gerente
+            System.out.println("|       16. Pedir Demissão       |"); // só gerente
             System.out.println("|        20. Sair                |"); 
             System.out.println("|        21. Funcionario Logado  |");
             System.out.println("|        22. Gerente Logado      |");
@@ -144,6 +145,16 @@ public class Guanabara {
                 }
                 case 15: {
                     buscaProduto();
+                    break;
+                }
+                case 16: {
+                    if (loggedGerente()){
+                        gerenteLogado.pedirDemissao();
+                    }
+                    else if (loggedFuncionario()){
+                        funcionarioLogado.pedirDemissao();
+                    }
+                    break;
                 }
                 case 21: {
                     if (loggedFuncionario()) {

@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements PessoaContratada {
     
     public void adicionar(){
         listaFuncionario.add(this);
@@ -26,5 +26,10 @@ public class Funcionario extends Pessoa {
                 funcionarioLogado = func;
             }
         }
+    }
+    
+    public void pedirDemissao(){
+        listaFuncionario.remove(this);
+        funcionarioLogado = null;
     }
 }

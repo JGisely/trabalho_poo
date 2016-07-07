@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author isouza
  */
-public abstract class Pessoa {
+public abstract class Pessoa implements Login {
     protected String nome;
     protected String senha;
     protected String matricula;
@@ -60,7 +60,7 @@ public abstract class Pessoa {
         setLogged(username,senha);
     }
     
-    public abstract void setLogged(String username, String senha);
+//    public abstract void setLogged(String username, String senha);
     public abstract void adicionar();
     
 }
