@@ -15,13 +15,14 @@ import java.util.Scanner;
 public class Mercado {
 
     Compra compra = new Compra();
-            
+    Scanner teclado = new Scanner(System.in);
+    Historico h = new Historico();
+    
     public Mercado() {
         printMenu();
     }
     
     private void printMenu(){
-        Scanner teclado = new Scanner(System.in);
         int opcao = 0;
         while(opcao != 20){
             // Menu Principal
@@ -54,9 +55,15 @@ public class Mercado {
         
             opcao = teclado.nextInt();
             teclado.nextLine();
-            switch(opcao) {
+            opcoes(opcao);   
+        }
+    }    
+    
+    
+    private void opcoes(int opcao){
+        switch(opcao) {
                 case 0: {
-                    cadastrarFuncionario();
+                    listaFuncionario.add(new Funcionario());
                     break;
                 }
                 case 1: {
@@ -64,7 +71,7 @@ public class Mercado {
                     break;
                 }
                 case 2: {
-                    cadastrarGerente();
+                    listaGerente.add(new Gerente());
                     break;
                 }
                 case 3: {
@@ -165,27 +172,14 @@ public class Mercado {
                 default: {
                     break;
                 }
-            }   
-        }
-    }    
-    
-    
-    
-    
-    private void cadastrarFuncionario(){
-        listaFuncionario.add(new Funcionario());
-        System.out.println("Cadastrado com sucesso!");
+            }
     }
+    
     
     private void listarFuncionarios(){
         for (Funcionario func : listaFuncionario){
             System.out.println(func.getNome());
         }
-    }
-    
-    private static void cadastrarGerente(){
-        listaGerente.add(new Gerente());
-        System.out.println("Cadastrado com sucesso!");
     }
     
     private void listarGerentes(){
@@ -240,7 +234,6 @@ public class Mercado {
     }
     
     private void relatorioVendas(){
-        Historico h = new Historico();
         h.getRelatorioVendas();
     }
     
