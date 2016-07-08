@@ -16,8 +16,8 @@ public class PagamentoDinheiro extends Pagamento {
     private Double valorPago;
     private Double troco;    
     
-    public PagamentoDinheiro(Double totalCompra) {
-        super(totalCompra);
+    public PagamentoDinheiro(Double totalCompra, Compra compra) {
+        super(totalCompra, compra);
     }
     
     @Override

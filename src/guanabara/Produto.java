@@ -16,6 +16,16 @@ import java.util.Scanner;
 public class Produto {
     private String nome;
     protected Double preco;
+
+    public Produto() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o nome do produto:");
+        setNome(teclado.nextLine());
+        System.out.println("Digite o preço do produto:");
+        setPreco(teclado.nextDouble());
+    }
+    
+    
     
     public void setNome(String novoNome){
         nome = novoNome;
@@ -33,14 +43,14 @@ public class Produto {
         return preco;
     }
     
-    public void create(ArrayList<Produto> listaProduto){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o nome do produto:");
-        setNome(teclado.nextLine());
-        System.out.println("Digite o preço do produto:");
-        setPreco(teclado.nextDouble());
-        listaProduto.add(this);
-    }
+//    public void create(){
+//        Scanner teclado = new Scanner(System.in);
+//        System.out.println("Digite o nome do produto:");
+//        setNome(teclado.nextLine());
+//        System.out.println("Digite o preço do produto:");
+//        setPreco(teclado.nextDouble());
+//        listaProduto.add(this);
+//    }
     
     public static void editar(){
         Scanner teclado = new Scanner(System.in);

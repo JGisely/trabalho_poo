@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class PagamentoCartao extends Pagamento {
 
-    public PagamentoCartao(Double total) {
-        super(total);
+    public PagamentoCartao(Double total, Compra compra) {
+        super(total,compra);
     }
     
     public void pagar(){

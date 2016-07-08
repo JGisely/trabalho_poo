@@ -10,6 +10,4 @@ package guanabara;
  * @author isouza
  */
 public interface Login {
-    void setLogged(String username, String senha);
-    void create();
 }

@@ -5,26 +5,24 @@
  */
 package guanabara;
 
-import static guanabara.Guanabara.compra;
-
 /**
  *
  * @author isouza
  */
-public abstract class Pagamento implements Runnable {
+public abstract class Pagamento {
     
     protected Double total;
 
-    public Pagamento(Double total) {
+    public Pagamento(Double total,Compra compra) {
         this.total = total;
         pagar();
-        finalizar();
+        salvarHistorico(compra);
+        compra = null;
     }
     public abstract void pagar();
     
-    public void finalizar(){
+    public void salvarHistorico(Compra compra){
         Historico h = new Historico();
         h.setHistorico(compra);
-        compra = null;
     }
 }

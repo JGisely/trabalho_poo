@@ -15,6 +15,16 @@ public abstract class Pessoa implements Login {
     protected String nome;
     protected String senha;
     protected String matricula;
+
+    public Pessoa() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o nome:");
+        setNome(teclado.nextLine());
+        System.out.println("Digite a senha:");
+        setSenha(teclado.nextLine());
+        System.out.println("Digite a matricula:");
+        setMatricula(teclado.nextLine());
+    }
     
     public void setMatricula(String novaMatricula){
         matricula = novaMatricula;
@@ -38,29 +48,5 @@ public abstract class Pessoa implements Login {
     
     public String getNome(){
         return nome;
-    }
-    
-    public void create(){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o nome:");
-        setNome(teclado.nextLine());
-        System.out.println("Digite a senha:");
-        setSenha(teclado.nextLine());
-        System.out.println("Digite a matricula:");
-        setMatricula(teclado.nextLine());
-        adicionar();
-    };
-    
-    public void login(){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o usuario:");
-        String username = teclado.nextLine();
-        System.out.println("Digite a senha:");
-        String senha = teclado.nextLine();
-        setLogged(username,senha);
-    }
-    
-//    public abstract void setLogged(String username, String senha);
-    public abstract void adicionar();
-    
+    }    
 }
