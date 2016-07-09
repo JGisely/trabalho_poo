@@ -16,7 +16,7 @@ public class Mercado {
 
     Compra compra = new Compra();
     Scanner teclado = new Scanner(System.in);
-    Historico h = new Historico();
+    Historico historico = new Historico();
     
     public Mercado() {
         printMenu();
@@ -88,7 +88,7 @@ public class Mercado {
                 }
                 case 6: {
                     if (loggedGerente()) {
-                     cadastrarProduto();   
+                     listaProduto.add(new Produto());   
                     }
                     else {
                         permissaoInvalida();
@@ -188,14 +188,10 @@ public class Mercado {
         }
     }
     
-    private void cadastrarProduto(){
-        listaProduto.add(new Produto());
-    }
-    
     private void listarProdutos(){
         for (Produto produto : listaProduto){
             System.out.println(produto.getNome() + ": " + produto.getPreco());
-        }
+        } 
     }
     
     private void editarProduto(){
@@ -234,7 +230,7 @@ public class Mercado {
     }
     
     private void relatorioVendas(){
-        h.getRelatorioVendas();
+        historico.getRelatorioVendas();
     }
     
     private void permissaoInvalida(){
