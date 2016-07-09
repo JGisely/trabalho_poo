@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 public class Guanabara {
     static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
     static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
-    static ArrayList<Produto> listaProduto = new ArrayList<Produto>();
     static Funcionario funcionarioLogado;
     static Gerente gerenteLogado;
     

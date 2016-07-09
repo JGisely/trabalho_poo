@@ -5,6 +5,8 @@
  */
 package guanabara;
 
+import java.util.Scanner;
+
 /**
  *
  * @author isouza
@@ -12,6 +14,17 @@ package guanabara;
 public class Item extends Produto {
     private int quantidade;
     private double total;
+    private Scanner teclado = new Scanner(System.in);
+    
+    public Item(Produto p) {
+        System.out.println("Digite a quantidade do produto");
+        this.setQuantidade(teclado.nextInt());
+        this.setNome(p.getNome());
+        this.setPreco(p.getPreco());
+        setTotal();
+    }
+    
+    
     
     public void setQuantidade(int novaQuantidade){
         quantidade = novaQuantidade;

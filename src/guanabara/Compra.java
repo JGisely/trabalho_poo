@@ -34,13 +34,7 @@ public class Compra {
     }
     
     
-    public void adicionarItem(){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Qual item voce quer adicionar?");
-        Produto p = Produto.getProduto(teclado.nextLine());
-        Item item = new Item();
-        System.out.println("Qual a quantidade desejada?");
-        item.setItem(p,teclado.nextInt());
+    public void adicionarItem(Item item){
         addItem(item);
     }
     
@@ -69,6 +63,11 @@ public class Compra {
                 break;
             }
         }
-            
+        clear();
+    }
+    
+    private void clear(){
+        itens.clear();
+        total = 0.0;
     }
 }

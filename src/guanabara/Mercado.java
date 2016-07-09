@@ -7,7 +7,6 @@ package guanabara;
 
 import static guanabara.Guanabara.listaFuncionario; 
 import static guanabara.Guanabara.listaGerente; 
-import static guanabara.Guanabara.listaProduto; 
 import static guanabara.Guanabara.funcionarioLogado; 
 import static guanabara.Guanabara.gerenteLogado; 
 import java.util.Scanner;
@@ -17,6 +16,7 @@ public class Mercado {
     Compra compra = new Compra();
     Scanner teclado = new Scanner(System.in);
     Historico historico = new Historico();
+    Estoque estoque = new Estoque();
     
     public Mercado() {
         printMenu();
@@ -41,7 +41,7 @@ public class Mercado {
             System.out.println("|        8. Remover Produtos     |"); // só gerente
             System.out.println("|        9. Editar Produto       |"); // só gerente
             System.out.println("|       10. Adicionar Itens      |"); // só funcionario
-            System.out.println("|       11. Listar Itens         |"); // só funcionario
+            System.out.println("|       11. Exibir Compra        |"); // só funcionario
             System.out.println("|       12. Finalizar Compra     |"); // só funcionario
             System.out.println("|       13. Relatório de Vendas  |"); // só gerente
             System.out.println("|       14. Relatório de Estoque |"); // só gerente
@@ -87,12 +87,13 @@ public class Mercado {
                     break;
                 }
                 case 6: {
-                    if (loggedGerente()) {
-                     listaProduto.add(new Produto());   
-                    }
-                    else {
+//                    if (loggedGerente()) {
+                     Produto p = new Produto();
+                     estoque.add(p.create()); 
+//                    }
+//                    else {
                         permissaoInvalida();
-                    }
+//                    }
                     break;
                 }
                 case 7: {
@@ -119,7 +120,8 @@ public class Mercado {
                     break;
                 }
                 case 10: {
-                    compra.adicionarItem();
+                    System.out.println("Qual produto vc quer adicionar?");
+                    compra.adicionarItem(new Item(estoque.getProduto(teclado.nextLine())));
                     break;
                 }
                 case 11: {
@@ -128,6 +130,7 @@ public class Mercado {
                 }
                 case 12: {
                     compra.finalizar();
+                    
                     break;
                 }
                 case 13: {
@@ -145,7 +148,7 @@ public class Mercado {
                 }
                 case 15: {
                     System.out.println("Qual o produto deseja buscar: ");
-                    Produto.getProduto(teclado.nextLine()).imprimeProduto();
+                    estoque.getProduto(teclado.nextLine()).imprimeProduto();
                     break;
                 }
                 case 16: {
@@ -189,9 +192,7 @@ public class Mercado {
     }
     
     private void listarProdutos(){
-        for (Produto produto : listaProduto){
-            System.out.println(produto.getNome() + ": " + produto.getPreco());
-        } 
+        estoque.listar();
     }
     
     private void editarProduto(){
@@ -199,34 +200,33 @@ public class Mercado {
     }
     
     private void removeProduto(String nome){
-        Produto.remove(nome);
+        estoque.remover(nome);
     }
     
-    private void adicionarItem(){
-        compra.adicionarItem();
-    }
 
     
     private Boolean loggedFuncionario(){
-        try {
-            if (funcionarioLogado != null){
-                return true;
-            }
-        } catch (NullPointerException ex) {
-            System.out.println(ex);
-        }
-        return false;
+        return true;
+//        try {
+//            if (funcionarioLogado != null){
+//                return true;
+//            }
+//        } catch (NullPointerException ex) {
+//            System.out.println(ex);
+//        }
+//        return false;
     }
     
     private Boolean loggedGerente(){
-        try {
-            if (gerenteLogado != null) {
-                return true;
-            }
-        } catch (NullPointerException ex) {
-            System.out.println(ex);
-        }
-        return false;
+        return true;
+//        try {
+//            if (gerenteLogado != null) {
+//                return true;
+//            }
+//        } catch (NullPointerException ex) {
+//            System.out.println(ex);
+//        }
+//        return false;
     }
     
     private void relatorioVendas(){
