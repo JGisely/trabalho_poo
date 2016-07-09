@@ -39,7 +39,7 @@ public class Mercado {
             System.out.println("|        6. Cadastrar Produto    |"); // só gerente
             System.out.println("|        7. Listar Produtos      |"); // qualquer um
             System.out.println("|        8. Remover Produtos     |"); // só gerente
-            System.out.println("|        9. Editar Produto       |"); // só gerente
+//            System.out.println("|        9. Editar Produto       |"); // só gerente
             System.out.println("|       10. Adicionar Itens      |"); // só funcionario
             System.out.println("|       11. Exibir Compra        |"); // só funcionario
             System.out.println("|       12. Finalizar Compra     |"); // só funcionario

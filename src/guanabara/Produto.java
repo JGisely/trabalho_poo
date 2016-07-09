@@ -46,11 +46,12 @@ public class Produto {
     }
     
     public static void editar(){
-//        Scanner teclado = new Scanner(System.in);
-//        System.out.println("Digite o nome do produto:");
-//        String nome = teclado.nextLine();
-//        System.out.println("Digite o novo preco:");
-//        Double preco = teclado.nextDouble();
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o nome do produto:");
+        String nome = teclado.nextLine();
+        System.out.println("Digite o novo preco:");
+        Double preco = teclado.nextDouble();
+        
 //        for (Produto produto : listaProduto){
 //            if (produto.getNome().equals(nome)) {
 //                listaProduto.get(listaProduto.indexOf(produto)).setPreco(preco);
